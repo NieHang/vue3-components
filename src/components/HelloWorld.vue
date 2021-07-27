@@ -1,9 +1,16 @@
 <template>
-  <div class="hello">{{ name }}:{{ name2 }}</div>
+  <div class="hello">{{ name }}:{{ name2 }}-{{ state.name }}</div>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, PropType, ref, watchEffect } from 'vue'
+import {
+  computed,
+  defineComponent,
+  PropType,
+  reactive,
+  ref,
+  watchEffect,
+} from 'vue'
 
 const PropsType = {
   msg: String,
@@ -18,6 +25,9 @@ export default defineComponent({
   props: PropsType,
   setup() {
     const name = ref('ben')
+    const state = reactive({
+      name: 123,
+    })
     setInterval(() => {
       name.value += '1'
     }, 1000)
@@ -30,6 +40,7 @@ export default defineComponent({
     return {
       name,
       name2,
+      state,
     }
   },
 })
