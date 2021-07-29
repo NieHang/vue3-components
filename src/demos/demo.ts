@@ -29,6 +29,7 @@ export default {
     },
   },
   default: {
+    name: 'niehang',
     pass1: '',
     pass2: '',
     color: '#861818',

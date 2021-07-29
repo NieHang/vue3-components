@@ -113,8 +113,8 @@ export default defineComponent({
     const classesRef = useStyles()
 
     const handleChange = (v: any) => {
-      demo.data = v
-      demo.dataCode = toJson(v)
+      demo.data.name = v
+      demo.dataCode = toJson(demo.data)
     }
 
     // closure 闭包 demo
