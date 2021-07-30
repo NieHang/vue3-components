@@ -1,5 +1,5 @@
 <template>
-  <input type="number" :value="value.age" @input="handleChange" />
+  <input type="number" :value="value" @input="handleChange" />
 </template>
 
 <script lang="ts" setup="props">

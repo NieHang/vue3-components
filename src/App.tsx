@@ -113,7 +113,7 @@ export default defineComponent({
     const classesRef = useStyles()
 
     const handleChange = (v: any) => {
-      demo.data.name = v
+      demo.data = v
       demo.dataCode = toJson(demo.data)
     }
 

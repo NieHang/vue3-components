@@ -1,5 +1,5 @@
 <template>
-  <input type="text" :value="value.name" @input="handleChange" />
+  <input type="text" :value="value" @input="handleChange" />
 </template>
 
 <script lang="ts" setup="props">
