@@ -28,17 +28,17 @@ export default {
       //   ],
       //   title: 'multiTypeArray',
       // },
-      // singleTypeArray: {
-      //   type: 'array',
-      //   title: 'singleTypeArray',
-      //   items: {
-      //     type: 'object',
-      //     properties: {
-      //       name: { type: 'string', title: 'name' },
-      //       age: { type: 'number', title: 'age' },
-      //     },
-      //   },
-      // },
+      singleTypeArray: {
+        type: 'array',
+        title: 'singleTypeArray',
+        items: {
+          type: 'object',
+          properties: {
+            name: { type: 'string', title: 'name' },
+            age: { type: 'number', title: 'age' },
+          },
+        },
+      },
       // multiSelectArray: {
       //   type: 'array',
       //   items: {

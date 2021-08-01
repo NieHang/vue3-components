@@ -1,4 +1,4 @@
-import { defineComponent, PropType, provide } from 'vue'
+import { defineComponent, onMounted, PropType, provide } from 'vue'
 import { Schema } from './types'
 import SchemaItem from './SchemaItem'
 import { SchemaFormContextKey } from './context'
@@ -18,7 +18,7 @@ export default defineComponent({
       required: true,
     },
   },
-  setup(props, { slots, emit, attrs }) {
+  setup(props) {
     const handleChange = (v: any) => {
       props.onChange(v)
     }

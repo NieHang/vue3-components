@@ -1,9 +1,10 @@
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, watchEffect } from 'vue'
 // import NumberField from './fields/NumberField'
 import NumberField from './fields/NumberField.vue'
 // import StringField from './fields/StringField'
 import StringField from './fields/StringField.vue'
 import ObjectField from './fields/ObjectField'
+import ArrayField from './fields/ArrayField'
 import { FieldPropsDefine, SchemaTypes } from './types'
 import { retrieveSchema } from './utils'
 
@@ -35,6 +36,9 @@ export default defineComponent({
           break
         case SchemaTypes.OBJECT:
           Component = ObjectField
+          break
+        case SchemaTypes.ARRAY:
+          Component = ArrayField
           break
         default:
           console.warn(`${type} is not supported`)

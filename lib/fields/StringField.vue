@@ -13,7 +13,6 @@ const props = defineProps<{
 }>()
 
 const handleChange = (e: any) => {
-  console.log(e)
   props.onChange(e.target.value)
 }
 </script>
