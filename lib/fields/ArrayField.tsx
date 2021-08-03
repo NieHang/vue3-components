@@ -3,6 +3,7 @@ import { FieldPropsDefine } from '../types'
 import { useVJSFContext } from '../context'
 import { Schema } from '../types'
 import { createUseStyles } from 'vue-jss'
+import { getWidget } from '../theme'
 
 const useStyles = createUseStyles({
   container: {
@@ -128,8 +129,12 @@ export default defineComponent({
       props.onChange(arr)
     }
 
+    const SelectionWidgetRef = getWidget('SelectionWidget')
+
     return () => {
-      const { schema, rootSchema, value } = props
+      const SelectionWidget = SelectionWidgetRef.value
+
+      const { schema, rootSchema, value, errorSchema } = props
 
       const SchemaItem = context.SchemaItem
 
@@ -146,6 +151,7 @@ export default defineComponent({
             key={index}
             rootSchema={rootSchema}
             value={arr[index]}
+            errorSchema={errorSchema}
             onChange={(v: any) => handleArrayItemChange(v, index)}
           />
         ))
@@ -165,13 +171,25 @@ export default defineComponent({
               value={v}
               key={index}
               rootSchema={rootSchema}
+              errorSchema={errorSchema}
               onChange={(v: string) => handleArrayItemChange(v, index)}
             />
           </ArrayItemWrapper>
         ))
+      } else {
+        // multi-select
+        const enumOptions = (schema as any).items.enum
+        const options = enumOptions.map((e: any) => ({ key: e, value: e }))
+        return (
+          <SelectionWidget
+            onChange={props.onChange}
+            value={props.value}
+            options={options}
+            errors={errorSchema.__errors}
+            schema={schema}
+          />
+        )
       }
-
-      return <div>hh</div>
     }
   },
 })

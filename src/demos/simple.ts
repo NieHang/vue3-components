@@ -20,14 +20,14 @@ export default {
         minLength: 10,
         title: 'telephone',
       },
-      // multiTypeArray: {
-      //   type: 'array',
-      //   items: [
-      //     { type: 'string', title: 'string' },
-      //     { type: 'number', title: 'number' },
-      //   ],
-      //   title: 'multiTypeArray',
-      // },
+      multiTypeArray: {
+        type: 'array',
+        items: [
+          { type: 'string', title: 'string' },
+          { type: 'number', title: 'number' },
+        ],
+        title: 'multiTypeArray',
+      },
       singleTypeArray: {
         type: 'array',
         title: 'singleTypeArray',
@@ -39,14 +39,14 @@ export default {
           },
         },
       },
-      // multiSelectArray: {
-      //   type: 'array',
-      //   items: {
-      //     type: 'string',
-      //     enum: ['foo', 'bar', 'foobar'],
-      //   },
-      //   title: 'multiSelectArray',
-      // },
+      multiSelectArray: {
+        type: 'array',
+        items: {
+          type: 'string',
+          enum: ['foo', 'bar', 'foobar'],
+        },
+        title: 'multiSelectArray',
+      },
     },
   },
   uiSchema: {

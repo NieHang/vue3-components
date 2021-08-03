@@ -1,7 +1,8 @@
-import { defineComponent, onMounted, PropType, provide } from 'vue'
+import { defineComponent, PropType, provide, Ref, shallowRef } from 'vue'
 import { Schema } from './types'
 import SchemaItem from './SchemaItem'
 import { SchemaFormContextKey } from './context'
+import { ErrorSchema } from './validator'
 
 export default defineComponent({
   name: 'SchemaForm',
@@ -27,6 +28,8 @@ export default defineComponent({
       SchemaItem,
     }
 
+    const errorSchemaRef: Ref<ErrorSchema> = shallowRef({})
+
     provide(SchemaFormContextKey, context)
 
     return () => {
@@ -35,6 +38,7 @@ export default defineComponent({
         <SchemaItem
           schema={schema}
           rootSchema={schema}
+          errorSchema={errorSchemaRef.value}
           value={value}
           onChange={handleChange}
         />

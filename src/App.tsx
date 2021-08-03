@@ -2,6 +2,8 @@ import { defineComponent, ref, Ref, reactive, watchEffect } from 'vue'
 import { createUseStyles } from 'vue-jss'
 import MonacoEditor from './components/MonacoEditor'
 import SchemaForm from '../lib/SchemaForm'
+import ThemeProvider from '../lib/theme'
+import themeDefault from '../lib/theme-default'
 
 // 测试数据
 import demos from './demos'
@@ -195,13 +197,13 @@ export default defineComponent({
             </div>
             {/* /.code */}
             <div class={classes.form}>
-              <SchemaForm
-                schema={demo.schema}
-                value={demo.data}
-                onChange={handleChange}
-              />
-              {/* <ThemeProvider theme={themeDefault as any}>
+              <ThemeProvider theme={themeDefault as any}>
                 <SchemaForm
+                  schema={demo.schema}
+                  value={demo.data}
+                  onChange={handleChange}
+                />
+                {/* <SchemaForm
                   schema={demo.schema}
                   value={demo.data}
                   onChange={handleChange}
@@ -211,8 +213,8 @@ export default defineComponent({
                   uiSchema={demo.uiSchema || {}}
                   customFormats={customFormat}
                   customKeywords={customKeyword}
-                />
-              </ThemeProvider> */}
+                /> */}
+              </ThemeProvider>
               <button onClick={validateForm}>校验</button>
             </div>
           </div>

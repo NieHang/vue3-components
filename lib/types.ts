@@ -1,6 +1,6 @@
 import { Format, MacroKeywordDefinition } from 'ajv'
 import { PropType, DefineComponent } from 'vue'
-// import { ErrorSchema } from './validator'
+import { ErrorSchema } from './validator'
 
 export enum SchemaTypes {
   'NUMBER' = 'number',
@@ -66,10 +66,10 @@ export const FieldPropsDefine = {
     type: Object as PropType<Schema>,
     required: true,
   },
-  // errorSchema: {
-  //   type: Object as PropType<ErrorSchema>,
-  //   required: true,
-  // },
+  errorSchema: {
+    type: Object as PropType<ErrorSchema>,
+    required: true,
+  },
   // uiSchema: {
   //   type: Object as PropType<UISchema>,
   //   required: true,
